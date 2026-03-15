@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anas El Hady – Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+```
+:root {
+  --navy: #0f2a4a;
+  --navy-mid: #1a3d6b;
+  --accent: #c8923a;
+  --accent-light: #e8b46a;
+  --light: #f7f5f1;
+  --white: #ffffff;
+  --gray: #6b7280;
+  --gray-light: #e5e7eb;
+  --text: #1f2937;
+  --section-bg: #fdfcfa;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--light);
+  line-height: 1.7;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--navy);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5%;
+  height: 64px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+}
+.nav-brand span { color: var(--accent-light); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent-light); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #2a5298 100%);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 120px 5% 80px;
+  position: relative;
+  overflow: hidden;
+}
+#hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-content { position: relative; z-index: 1; max-width: 700px; }
+.hero-initials {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  color: var(--white);
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 32px rgba(200,146,58,0.4);
+  animation: fadeUp 0.8s ease both;
+}
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  color: var(--white);
+  letter-spacing: 0.02em;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+.hero-title {
+  font-size: 1.05rem;
+  color: var(--accent-light);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0.6rem 0 1.2rem;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+.hero-desc {
+  color: rgba(255,255,255,0.75);
+  font-size: 1rem;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+.hero-location {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.88rem;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.8s 0.35s ease both;
+}
+.hero-location::before { content: '📍 '; }
+.hero-cta {
+  display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+  animation: fadeUp 0.8s 0.45s ease both;
+}
+.btn {
+  padding: 0.7rem 1.8rem;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--white);
+}
+.btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(200,146,58,0.4); }
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.4);
+}
+.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+
+/* ── SECTIONS ── */
+section { padding: 90px 5%; }
+.section-inner { max-width: 1000px; margin: 0 auto; }
+.section-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.divider {
+  width: 50px; height: 3px;
+  background: var(--accent);
+  margin-bottom: 3rem;
+  border-radius: 2px;
+}
+
+/* ── À PROPOS ── */
+#about { background: var(--white); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.about-text p { color: var(--gray); margin-bottom: 1rem; font-size: 1rem; }
+.contact-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.5rem; }
+.contact-list li { display: flex; align-items: center; gap: 0.7rem; color: var(--gray); font-size: 0.95rem; }
+.contact-list li .icon { font-size: 1.1rem; width: 24px; }
+.contact-list a { color: var(--navy-mid); text-decoration: none; font-weight: 500; }
+.contact-list a:hover { color: var(--accent); }
+
+.lang-grid { display: flex; flex-direction: column; gap: 0.9rem; }
+.lang-item { display: flex; align-items: center; gap: 1rem; }
+.lang-name { font-weight: 600; color: var(--navy); width: 90px; font-size: 0.9rem; }
+.lang-level { font-size: 0.78rem; color: var(--gray); width: 50px; }
+.lang-bar { flex: 1; height: 6px; background: var(--gray-light); border-radius: 3px; overflow: hidden; }
+.lang-fill { height: 100%; background: linear-gradient(90deg, var(--navy-mid), var(--accent)); border-radius: 3px; transition: width 1s ease; }
+
+/* ── FORMATION & EXPÉRIENCES ── */
+#formation { background: var(--section-bg); }
+#experience { background: var(--white); }
+
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+  content: '';
+  position: absolute; left: 6px; top: 6px; bottom: 0;
+  width: 2px; background: var(--gray-light);
+}
+.timeline-item { position: relative; margin-bottom: 2.5rem; }
+.timeline-item::before {
+  content: '';
+  position: absolute; left: -1.75rem; top: 6px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2.5px solid var(--white);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.timeline-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.4rem; }
+.timeline-org { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); font-weight: 600; }
+.timeline-date { font-size: 0.82rem; color: var(--accent); font-weight: 600; letter-spacing: 0.04em; background: rgba(200,146,58,0.1); padding: 2px 8px; border-radius: 20px; }
+.timeline-role { font-size: 0.9rem; color: var(--gray); font-style: italic; margin: 0.2rem 0 0.6rem; }
+.timeline-bullets { list-style: none; }
+.timeline-bullets li { font-size: 0.92rem; color: var(--gray); padding: 0.2rem 0; padding-left: 1rem; position: relative; }
+.timeline-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--accent); }
+
+/* ── COMPÉTENCES ── */
+#competences { background: var(--navy); }
+#competences .section-label { color: var(--accent-light); }
+#competences .section-title { color: var(--white); }
+#competences .divider { background: var(--accent-light); }
+
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+.skill-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.2s;
+}
+.skill-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+.skill-card h4 { color: var(--accent-light); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; font-weight: 600; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.skill-tag { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85); border-radius: 4px; padding: 4px 10px; font-size: 0.82rem; font-weight: 500; }
+
+/* ── PROJETS ── */
+#projets { background: var(--section-bg); }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.4rem; }
+.project-card {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.project-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--navy-mid), var(--accent));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.project-card:hover { box-shadow: 0 8px 30px rgba(15,42,74,0.12); transform: translateY(-4px); }
+.project-card:hover::after { transform: scaleX(1); }
+.project-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--navy); margin-bottom: 0.5rem; }
+.project-desc { font-size: 0.88rem; color: var(--gray); margin-bottom: 1rem; line-height: 1.55; min-height: 54px; }
+.project-lang { font-size: 0.78rem; color: var(--accent); font-weight: 600; letter-spacing: 0.06em; margin-bottom: 1rem; }
+.project-lang::before { content: '⬤ '; font-size: 0.6rem; }
+.project-footer { display: flex; justify-content: space-between; align-items: center; }
+.project-stars { font-size: 0.8rem; color: var(--gray); }
+.project-link {
+  font-size: 0.8rem; font-weight: 600; color: var(--navy-mid);
+  text-decoration: none; letter-spacing: 0.05em;
+  border-bottom: 1.5px solid var(--accent);
+  padding-bottom: 1px;
+  transition: color 0.2s;
+}
+.project-link:hover { color: var(--accent); }
+
+.gitlab-note {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+  padding: 1.2rem 1.5rem;
+  margin-top: 2rem;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+.gitlab-note strong { color: var(--navy); }
+.gitlab-note a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+#projects-loading { text-align: center; color: var(--gray); padding: 2rem; font-size: 0.95rem; }
+#projects-error { text-align: center; color: #b45309; padding: 1rem; font-size: 0.9rem; display: none; }
+
+/* ── CONTACT ── */
+#contact { background: var(--white); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.contact-info p { color: var(--gray); margin-bottom: 1.5rem; }
+.contact-items { display: flex; flex-direction: column; gap: 1rem; }
+.contact-item {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.2rem;
+  background: var(--light);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.contact-item:hover { background: var(--navy); }
+.contact-item:hover .ci-label, .contact-item:hover .ci-val { color: var(--white); }
+.ci-icon { font-size: 1.3rem; width: 32px; text-align: center; }
+.ci-label { font-size: 0.78rem; color: var(--gray); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.ci-val { font-size: 0.9rem; color: var(--navy); font-weight: 500; }
+.contact-badge {
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 2.5rem;
+  text-align: center;
+  color: var(--white);
+}
+.contact-badge h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 0.8rem; }
+.contact-badge p { color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 1.5rem; }
+.badge-tag { display: inline-block; background: rgba(200,146,58,0.2); color: var(--accent-light); border: 1px solid rgba(200,146,58,0.3); border-radius: 20px; padding: 5px 14px; font-size: 0.82rem; font-weight: 600; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 1.8rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+footer span { color: var(--accent-light); }
+
+/* ── ANIMATION ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .nav-links { gap: 1rem; }
+  .nav-links a { font-size: 0.78rem; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+  <div class="nav-brand">Anas <span>El Hady</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">Profil</a></li>
+    <li><a href="#formation">Formation</a></li>
+    <li><a href="#experience">Expériences</a></li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-initials">AE</div>
+    <h1 class="hero-name">Anas El Hady</h1>
+    <p class="hero-title">Étudiant ingénieur · Informatique, Statistiques & IA</p>
+    <p class="hero-desc">À la recherche d'une alternance 2026–2027. Passionné par la programmation, l'analyse de données et l'intelligence artificielle.</p>
+    <p class="hero-location">Saint-Omer, France</p>
+    <div class="hero-cta">
+      <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+      <a href="#contact" class="btn btn-outline">Me contacter</a>
+    </div>
+  </div>
+</section>
+
+<!-- À PROPOS -->
+
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label fade-in">Présentation</p>
+    <h2 class="section-title fade-in">À propos</h2>
+    <div class="divider fade-in"></div>
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <p>Étudiant en cycle ingénieur à <strong>Polytech Lille</strong> (ISIA – Informatique, Statistiques et Intelligence Artificielle), je développe des compétences solides en programmation, analyse de données et machine learning.</p>
+        <p>Curieux et rigoureux, j'ai eu l'occasion d'évoluer dans des environnements professionnels exigeants, notamment au sein de la <strong>Centrale Nucléaire de Gravelines</strong>, où j'ai manipulé et analysé des données dans un contexte industriel.</p>
+        <p>Je recherche une <strong>alternance pour 2026–2027</strong> pour mettre en pratique mes compétences et contribuer à des projets data / IA.</p>
+        <ul class="contact-list">
+          <li><span class="icon">✉️</span><a href="mailto:elhadyanas26@gmail.com">elhadyanas26@gmail.com</a></li>
+          <li><span class="icon">🐙</span><a href="https://github.com/Anas404-byte" target="_blank">github.com/Anas404-byte</a></li>
+          <li><span class="icon">🔬</span><a href="https://gitlab.univ-lille.fr/dashboard/projects" target="_blank">GitLab Université de Lille</a></li>
+        </ul>
+      </div>
+      <div class="fade-in">
+        <p class="section-label" style="margin-bottom:1.2rem;">Langues</p>
+        <div class="lang-grid">
+          <div class="lang-item">
+            <span class="lang-name">Français</span>
+            <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+            <span class="lang-level">Natif</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Anglais</span>
+            <div class="lang-bar"><div class="lang-fill" style="width:72%"></div></div>
+            <span class="lang-level">B2</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Espagnol</span>
+            <div class="lang-bar"><div class="lang-fill" style="width:55%"></div></div>
+            <span class="lang-level">B1</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Arabe</span>
+            <div class="lang-bar"><div class="lang-fill" style="width:30%"></div></div>
+            <span class="lang-level">A2</span>
+          </div>
+        </div>
+        <p class="section-label" style="margin-top:2rem;margin-bottom:0.8rem;">Loisirs</p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+          <span class="skill-tag" style="background:var(--gray-light);color:var(--navy);font-size:0.85rem;">🏅 Sport</span>
+          <span class="skill-tag" style="background:var(--gray-light);color:var(--navy);font-size:0.85rem;">🎵 Musique</span>
+          <span class="skill-tag" style="background:var(--gray-light);color:var(--navy);font-size:0.85rem;">🎬 Vidéo</span>
+          <span class="skill-tag" style="background:var(--gray-light);color:var(--navy);font-size:0.85rem;">✈️ Voyage</span>
+          <span class="skill-tag" style="background:var(--gray-light);color:var(--navy);font-size:0.85rem;">📷 Photographie</span>
+          <span class="skill-tag" style="background:var(--gray-light);color:var(--navy);font-size:0.85rem;">🌍 Culture</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATION -->
+
+<section id="formation">
+  <div class="section-inner">
+    <p class="section-label fade-in">Parcours académique</p>
+    <h2 class="section-title fade-in">Formation</h2>
+    <div class="divider fade-in"></div>
+    <div class="timeline fade-in">
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <span class="timeline-org">Polytech Lille</span>
+          <span class="timeline-date">2024 – Présent</span>
+        </div>
+        <p class="timeline-role">Cycle ingénieur – Informatique, Statistiques et IA (ISIA)</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <span class="timeline-org">Polytech Lille</span>
+          <span class="timeline-date">2022 – 2024</span>
+        </div>
+        <p class="timeline-role">PEIPA – Parcours des Écoles d'Ingénieurs Polytech Annee</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <span class="timeline-org">Lycée Blaise Pascal</span>
+          <span class="timeline-date">2019 – 2022</span>
+        </div>
+        <p class="timeline-role">Baccalauréat Général – Mathématiques, Physique-Chimie</p>
+      </div>
+    </div>
+    <div class="fade-in" style="margin-top:2.5rem;">
+      <p class="section-label" style="margin-bottom:0.8rem;">Certifications</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <div style="background:var(--white);border:1px solid var(--gray-light);border-radius:6px;padding:0.9rem 1.2rem;display:flex;align-items:center;gap:0.8rem;">
+          <span style="font-size:1.4rem;">📊</span>
+          <div>
+            <p style="font-weight:600;font-size:0.9rem;color:var(--navy);">Visualization for Data Analysis with Power BI</p>
+            <p style="font-size:0.8rem;color:var(--gray);">Microsoft · En cours</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPÉRIENCES -->
+
+<section id="experience">
+  <div class="section-inner">
+    <p class="section-label fade-in">Parcours professionnel</p>
+    <h2 class="section-title fade-in">Expériences</h2>
+    <div class="divider fade-in"></div>
+    <div class="timeline fade-in">
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <span class="timeline-org">Centrale Nucléaire de Gravelines</span>
+          <span class="timeline-date">2025 · 1 mois</span>
+        </div>
+        <p class="timeline-role">Stage – Service Données · France</p>
+        <ul class="timeline-bullets">
+          <li>Participation active aux missions du service données</li>
+          <li>Manipulation et analyse de données dans un environnement industriel exigeant</li>
+          <li>Travail en équipe dans le respect des procédures et règles de sécurité</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <span class="timeline-org">Centrale Nucléaire de Gravelines</span>
+          <span class="timeline-date">2023 · 1 mois</span>
+        </div>
+        <p class="timeline-role">Stage – Découverte professionnelle · France</p>
+        <ul class="timeline-bullets">
+          <li>Découverte du fonctionnement d'une centrale nucléaire</li>
+          <li>Observation de l'organisation des services</li>
+          <li>Intégration dans un environnement professionnel structuré</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <span class="timeline-org">ON</span>
+          <span class="timeline-date">2022 · 1 mois</span>
+        </div>
+        <p class="timeline-role">Employé Intérimaire · Luxembourg</p>
+        <ul class="timeline-bullets">
+          <li>Activités opérationnelles sur site dans un environnement professionnel structuré</li>
+          <li>Respect des consignes de sécurité, procédures et délais</li>
+          <li>Développement de l'autonomie et du travail en équipe</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+
+<section id="competences">
+  <div class="section-inner">
+    <p class="section-label fade-in">Savoir-faire</p>
+    <h2 class="section-title fade-in">Compétences</h2>
+    <div class="divider fade-in"></div>
+    <div class="skills-grid fade-in">
+      <div class="skill-card">
+        <h4>Langages</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">R</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Data & IA</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Machine Learning</span>
+          <span class="skill-tag">Statistiques</span>
+          <span class="skill-tag">Analyse de données</span>
+          <span class="skill-tag">Power BI</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Outils</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Git / GitHub</span>
+          <span class="skill-tag">GitLab</span>
+          <span class="skill-tag">Excel</span>
+          <span class="skill-tag">Word</span>
+          <span class="skill-tag">PowerPoint</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Soft Skills</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Rigueur</span>
+          <span class="skill-tag">Communication</span>
+          <span class="skill-tag">Esprit d'équipe</span>
+          <span class="skill-tag">Autonomie</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+
+<section id="projets">
+  <div class="section-inner">
+    <p class="section-label fade-in">Code & réalisations</p>
+    <h2 class="section-title fade-in">Projets GitHub</h2>
+    <div class="divider fade-in"></div>
+    <div id="projects-loading">Chargement des projets depuis GitHub…</div>
+    <div id="projects-error">Impossible de charger les projets. <a href="https://github.com/Anas404-byte?tab=repositories" target="_blank">Voir directement sur GitHub →</a></div>
+    <div id="projects-grid" class="projects-grid"></div>
+    <div class="gitlab-note fade-in">
+      <strong>🔒 GitLab Université de Lille</strong> — J'ai également des projets académiques sur le GitLab de Polytech Lille (accès restreint). 
+      <a href="https://gitlab.univ-lille.fr/dashboard/projects" target="_blank">gitlab.univ-lille.fr →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label fade-in">Restons en contact</p>
+    <h2 class="section-title fade-in">Contact</h2>
+    <div class="divider fade-in"></div>
+    <div class="contact-grid">
+      <div class="contact-info fade-in">
+        <p>Disponible pour une <strong>alternance à partir de 2026</strong>. N'hésitez pas à me contacter par email ou via GitHub.</p>
+        <div class="contact-items">
+          <a href="mailto:elhadyanas26@gmail.com" class="contact-item">
+            <span class="ci-icon">✉️</span>
+            <div><p class="ci-label">Email</p><p class="ci-val">elhadyanas26@gmail.com</p></div>
+          </a>
+          <a href="https://github.com/Anas404-byte" target="_blank" class="contact-item">
+            <span class="ci-icon">🐙</span>
+            <div><p class="ci-label">GitHub</p><p class="ci-val">Anas404-byte</p></div>
+          </a>
+          <a href="https://gitlab.univ-lille.fr/dashboard/projects" target="_blank" class="contact-item">
+            <span class="ci-icon">🔬</span>
+            <div><p class="ci-label">GitLab Univ. Lille</p><p class="ci-val">Projets académiques</p></div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-badge fade-in">
+        <h3>Disponible en alternance</h3>
+        <p>À la recherche d'une opportunité en data, développement ou IA pour l'année 2026–2027.</p>
+        <span class="badge-tag">🎓 Polytech Lille – ISIA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <p>© 2025 <span>Anas El Hady</span> · Polytech Lille ISIA · Construit avec ♥</p>
+</footer>
+
+<script>
+  // Fetch GitHub repos
+  async function loadGitHubRepos() {
+    const username = 'Anas404-byte';
+    const grid = document.getElementById('projects-grid');
+    const loading = document.getElementById('projects-loading');
+    const error = document.getElementById('projects-error');
+
+    try {
+      const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=12`);
+      if (!res.ok) throw new Error('GitHub API error');
+      const repos = await res.json();
+
+      loading.style.display = 'none';
+
+      if (!repos.length) {
+        error.textContent = 'Aucun dépôt public trouvé.';
+        error.style.display = 'block';
+        return;
+      }
+
+      const langColors = {
+        'Python': '#3572A5', 'JavaScript': '#f1e05a', 'Java': '#b07219',
+        'R': '#198CE7', 'HTML': '#e34c26', 'CSS': '#563d7c',
+        'TypeScript': '#2b7489', 'C': '#555555', 'C++': '#f34b7d',
+        'Jupyter Notebook': '#DA5B0B', 'Shell': '#89e051'
+      };
+
+      repos.forEach((repo, i) => {
+        if (repo.fork) return;
+        const color = langColors[repo.language] || '#6b7280';
+        const desc = repo.description || 'Aucune description disponible.';
+        const card = document.createElement('div');
+        card.className = 'project-card fade-in';
+        card.style.animationDelay = `${i * 0.07}s`;
+        card.innerHTML = `
+          <h3>${repo.name.replace(/-/g, ' ')}</h3>
+          <p class="project-desc">${desc}</p>
+          ${repo.language ? `<p class="project-lang" style="color:${color}">${repo.language}</p>` : ''}
+          <div class="project-footer">
+            <span class="project-stars">⭐ ${repo.stargazers_count} · 🍴 ${repo.forks_count}</span>
+            <a href="${repo.html_url}" target="_blank" class="project-link">Voir →</a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      // Trigger animation
+      setTimeout(() => {
+        document.querySelectorAll('.project-card.fade-in').forEach(el => {
+          el.classList.add('visible');
+        });
+      }, 100);
+
+    } catch (e) {
+      loading.style.display = 'none';
+      error.style.display = 'block';
+    }
+  }
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  loadGitHubRepos();
+</script>
+
+</body>
+</html>
